@@ -1,0 +1,39 @@
+{
+    "apps": [
+        {
+            "exec_mode": "cluster",
+            "instances": 1,
+            "script": "./dist/index.js",
+            "name": "medical-web",
+            "retain": "all",
+            "compress": true,
+            "dateFormat": "YYYY-MM-DD_HH-mm-ss",
+            "workerInterval": 10,
+            "rotateInterval": "*/30 * * * *",
+            "rotateModule": true,
+            "error_file": "/app/MEDICAL/logs/pm2_logs/error.log",
+            "out_file": "/app/MEDICAL/logs/pm2_logs/out.log",
+            "pid_file": "/app/MEDICAL/logs/pm2_logs/pid.log",
+            "env": {
+                "NODE_ENV": "development",
+                "APP_HOST": "0.0.0.0",
+                "APP_PORT": "8080",
+                "DB_CONFIG":{
+                    "USER": "root",
+                    "PASSWORD": "12345678",
+                    "DB": "nextcloudwatertool",
+                    "OPTIONS":{
+                        "port" : 3306,
+                        "host" : "localhost",
+                        "dialect" : "mysql",
+                        "max": 5,
+                        "min": 0,
+                        "acquire": 30000,
+                        "idle": 10000,
+                        "logging": true
+                    }
+                }
+            }
+        }
+    ]
+}
