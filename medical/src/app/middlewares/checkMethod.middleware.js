@@ -1,0 +1,1 @@
+export const CheckMethod =  (req,res,next) => (["GET","POST","PUT","DELETE"].includes(req.method))? next():res.sendStatus(405);
