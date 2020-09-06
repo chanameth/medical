@@ -1,0 +1,1 @@
+export * from './topic16Hospital.model';
