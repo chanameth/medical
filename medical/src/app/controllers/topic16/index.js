@@ -1,0 +1,1 @@
+export * from './queryTopic16.controller';
